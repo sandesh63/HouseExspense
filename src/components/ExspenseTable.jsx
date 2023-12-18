@@ -39,7 +39,7 @@ const ExspenseTable = () => {
   useEffect(() => {
     const getTableData = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/getlist");
+        const response = await axios.get("https://houseexspensebackend-production.up.railway.app/getlist");
         setRows(response.data);
        
         setLoading(false);
