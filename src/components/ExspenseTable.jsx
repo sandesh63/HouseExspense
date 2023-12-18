@@ -49,7 +49,7 @@ const ExspenseTable = () => {
       }
     };
     getTableData();
-  });
+  }, []);
   const [loading, setLoading] = useState(true);
   const [rows, setRows] = useState([
     // {
