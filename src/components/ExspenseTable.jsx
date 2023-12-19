@@ -30,6 +30,14 @@ const ExspenseTable = () => {
   }, []);
   const [loading, setLoading] = useState(true);
   const [rows, setRows] = useState([]);
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
+    return formattedDate;
+  };
+  
+  
+  
   return (
     <>
       {/* <Card className="bg-light text-white">
@@ -178,7 +186,7 @@ const ExspenseTable = () => {
                   <tr>
                     <td>{row.id}</td>
                     <td>{row.category}</td>
-                    <td>{row.date}</td>
+                    <td>{formatDate(row.date)}</td>
                     <td>{row.amount}</td>
                     <td>{row.work}</td>
                     <td>{row.receiver}</td>
