@@ -5,7 +5,7 @@ import ExspenseTable from './ExspenseTable'
 const Outlet = () => {
   return (
    <>
-    <NavigationBar/>
+    {/* <NavigationBar/> */}
     <ExspenseTable/>
    </>
   )
