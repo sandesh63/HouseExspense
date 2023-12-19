@@ -63,117 +63,104 @@ const ExspenseTable = () => {
           </TableContainer>
         </Paper>
       </Card> */}
-      <Row>
-        <Col xs={2} className="sidebar">
-          <div className="logo">hchc</div>
-          <Row>
-            <Col sm="12">
-              <ul className="menu">
-                <li className="active">
-                  <a href="#">
-                    <i className="fas fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fas fa-user"></i>
-                    <span>Dashboard</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fas fa-chart-bar"></i>
-                    <span>Dashboard</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fas fa-briefcase"></i>
-                    <span>Dashboard</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fas fa-sign-out"></i>
-                    <span>Logout</span>
-                  </a>
-                </li>
-              </ul>
-            </Col>
-          </Row>
-        </Col>
-        <Col xs={9}>
-          <div class="main--content">
-            <div class="header--wrapper">
-              <Row>
-                <Col xm={5}>
-                  <div class="header-title">
-                    <span>Primary</span>
-                    <h2>Dashboard</h2>
-                  </div>
-                  </Col>
-                  <Col xs={7}>
-                  <div class="user--info">
-                    <div class="search--box">
-                      <i class="fa-solid fa-search"></i>
-                      <input type="text" placeholder="Search" />
-                    </div>
+      <div class="sidebar">
+      <div class="logo"></div>
+      <ul class="menu">
+        <li class="active">
+          <a href="#">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-user"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-chart-bar"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-briefcase"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-sign-out"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="main--content">
+      <div class="header--wrapper">
+        <div class="header-title">
+          <span>Primary</span>
+          <h2>Dashboard</h2>
+        </div>
+        <div class="user--info">
+          <div class="search--box">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" placeholder="Search" />
+          </div>
 
-                    <img src="" alt="profilepic" />
-                  </div>
-                  </Col>
-                
-              </Row>
-            </div>
-            <div class="card-container">
-              <h3 class="main--title">Today's date</h3>
+          <img src="" alt="profilepic" />
+        </div>
+      </div>
+      <div class="card-container">
+        <h3 class="main--title">Today's date</h3>
 
-              <Row class="card-wrapper">
-                <Col  xs={5}class="payment--card light-red">
-                  <div class="card--header">
-                    <div class="amount">
-                      <span class="title">Payement Amount</span>
-                      <span class="amount-value">$500.00</span>
-                    </div>
-                    <i class="fas fa-dollar-sign icon"></i>
-                  </div>
-                  <span class="card-detail">******37447</span>
-                </Col>
-                <Col  xs={5}class="payment--card light-red">
-                  <div class="card--header">
-                    <div class="amount">
-                      <span class="title">Payement Amount</span>
-                      <span class="amount-value">$500.00</span>
-                    </div>
-                    <i class="fas fa-dollar-sign icon"></i>
-                  </div>
-                  <span class="card-detail">******37447</span>
-                </Col>
-                <Col  xs={5}class="payment--card light-red">
-                  <div class="card--header">
-                    <div class="amount">
-                      <span class="title">Payement Amount</span>
-                      <span class="amount-value">$500.00</span>
-                    </div>
-                    <i class="fas fa-dollar-sign icon"></i>
-                  </div>
-                  <span class="card-detail">******37447</span>
-                </Col>
-                <Col  xs={5}class="payment--card light-red">
-                  <div class="card--header">
-                    <div class="amount">
-                      <span class="title">Payement Amount</span>
-                      <span class="amount-value">$500.00</span>
-                    </div>
-                    <i class="fas fa-dollar-sign icon"></i>
-                  </div>
-                  <span class="card-detail">******37447</span>
-                </Col>
-              </Row>
+        <div class="card-wrapper">
+          <div class="payment--card light-red">
+            <div class="card--header">
+              <div class="amount">
+                <span class="title">Payement Amount</span>
+                <span class="amount-value">$500.00</span>
+              </div>
+              <i class="fas fa-dollar-sign icon"></i>
             </div>
-            <div class="tabular--wrapper">
-              <h3 class="main--title">Finance Data</h3>
+            <span class="card-detail">******37447</span>
+          </div>
+          <div class="payment--card light-green">
+            <div class="card--header">
+              <div class="amount">
+                <span class="title">Payement Amount</span>
+                <span class="amount-value">$500.00</span>
+              </div>
+              <i class="fas fa-dollar-sign icon"></i>
+            </div>
+            <span class="card-detail">******37447</span>
+          </div>
+          <div class="payment--card light-purple">
+            <div class="card--header">
+              <div class="amount">
+                <span class="title">Payement Amount</span>
+                <span class="amount-value">$500.00</span>
+              </div>
+              <i class="fas fa-dollar-sign icon"></i>
+            </div>
+            <span class="card-detail">******37447</span>
+          </div>
+          <div class="payment--card light-red">
+            <div class="card--header">
+              <div class="amount">
+                <span class="title">Payement Amount</span>
+                <span class="amount-value">$500.00</span>
+              </div>
+              <i class="fas fa-dollar-sign icon"></i>
+            </div>
+            <span class="card-detail">******37447</span>
+          </div>
+        </div>
+      </div>
+      <div class="tabular--wrapper">
+        <h3 class="main--title">Finance Data</h3>
               <table>
                 <thead>
                   <tr>
@@ -207,10 +194,8 @@ const ExspenseTable = () => {
                   </tr>
                 </tfoot>
               </table>
-            </div>
-          </div>
-        </Col>
-      </Row>
+              </div>
+    </div>
     </>
   );
 };
