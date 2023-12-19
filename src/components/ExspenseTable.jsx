@@ -31,16 +31,17 @@ const ExspenseTable = () => {
   const [loading, setLoading] = useState(true);
   const [rows, setRows] = useState([]);
   const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = new Date(dateString).toLocaleDateString(undefined, options);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(dateString).toLocaleDateString(
+      undefined,
+      options
+    );
     return formattedDate;
   };
-  
-  
-  
+
   return (
     <>
-      {/* <Card className="bg-light text-white">
+      {/* <Card classNameName="bg-light text-white">
         <Paper style={{ width: "100%", overflow: "hidden" }}>
           <TableContainer style={{ maxHeight: 440 }}>
             <Table stickyHeader aria-label="sticky table">
@@ -71,139 +72,139 @@ const ExspenseTable = () => {
           </TableContainer>
         </Paper>
       </Card> */}
-      <div class="sidebar">
-      <div class="logo"></div>
-      <ul class="menu">
-        <li class="active">
-          <a href="#">
-            <i class="fas fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fas fa-user"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fas fa-chart-bar"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fas fa-briefcase"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fas fa-sign-out"></i>
-            <span>Logout</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="main--content">
-      <div class="header--wrapper">
-        <div class="header-title">
-          <span>Primary</span>
-          <h2>Dashboard</h2>
-        </div>
-        <div class="user--info">
-          <div class="search--box">
-            <i class="fa-solid fa-search"></i>
-            <input type="text" placeholder="Search" />
+      <div className="wrap">
+      <div className="sidebar">
+        <div className="logo"></div>
+        <ul className="menu">
+          <li className="active">
+            <a href="#">
+              <i className="fas fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i className="fas fa-user"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i className="fas fa-chart-bar"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i className="fas fa-briefcase"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i className="fas fa-sign-out"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div className="main--content">
+        <div className="header--wrapper">
+          <div className="header-title">
+            <span>Primary</span>
+            <h2>Dashboard</h2>
           </div>
+          <div className="user--info">
+            <div className="search--box">
+              <i className="fa-solid fa-search"></i>
+              <input type="text" placeholder="Search" />
+            </div>
 
-          <img src="" alt="profilepic" />
+            <img src="" alt="profilepic" />
+          </div>
+        </div>
+        <div className="card-container">
+          <h3 className="main--title">Today's date</h3>
+
+          <div className="card-wrapper">
+            <div className="payment--card light-red">
+              <div className="card--header">
+                <div className="amount">
+                  <span className="title">Payement Amount</span>
+                  <span className="amount-value">$500.00</span>
+                </div>
+                <i className="fas fa-dollar-sign icon"></i>
+              </div>
+              <span className="card-detail">******37447</span>
+            </div>
+            <div className="payment--card light-green">
+              <div className="card--header">
+                <div className="amount">
+                  <span className="title">Payement Amount</span>
+                  <span className="amount-value">$500.00</span>
+                </div>
+                <i className="fas fa-dollar-sign icon"></i>
+              </div>
+              <span className="card-detail">******37447</span>
+            </div>
+            <div className="payment--card light-purple">
+              <div className="card--header">
+                <div className="amount">
+                  <span className="title">Payement Amount</span>
+                  <span className="amount-value">$500.00</span>
+                </div>
+                <i className="fas fa-dollar-sign icon"></i>
+              </div>
+              <span className="card-detail">******37447</span>
+            </div>
+            <div className="payment--card light-red">
+              <div className="card--header">
+                <div className="amount">
+                  <span className="title">Payement Amount</span>
+                  <span className="amount-value">$500.00</span>
+                </div>
+                <i className="fas fa-dollar-sign icon"></i>
+              </div>
+              <span className="card-detail">******37447</span>
+            </div>
+          </div>
+        </div>
+        <div className="tabular--wrapper">
+          <h3 className="main--title">Finance Data</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Work</th>
+                <th>Receiver</th>
+                <th>Message</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr>
+                  <td>{row.id}</td>
+                  <td>{row.category}</td>
+                  <td>{formatDate(row.date)}</td>
+                  <td>{row.amount}</td>
+                  <td>{row.work}</td>
+                  <td>{row.receiver}</td>
+                  <td>{row.message}</td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="7">Total $7,000</td>
+              </tr>
+            </tfoot>
+          </table>
         </div>
       </div>
-      <div class="card-container">
-        <h3 class="main--title">Today's date</h3>
-
-        <div class="card-wrapper">
-          <div class="payment--card light-red">
-            <div class="card--header">
-              <div class="amount">
-                <span class="title">Payement Amount</span>
-                <span class="amount-value">$500.00</span>
-              </div>
-              <i class="fas fa-dollar-sign icon"></i>
-            </div>
-            <span class="card-detail">******37447</span>
-          </div>
-          <div class="payment--card light-green">
-            <div class="card--header">
-              <div class="amount">
-                <span class="title">Payement Amount</span>
-                <span class="amount-value">$500.00</span>
-              </div>
-              <i class="fas fa-dollar-sign icon"></i>
-            </div>
-            <span class="card-detail">******37447</span>
-          </div>
-          <div class="payment--card light-purple">
-            <div class="card--header">
-              <div class="amount">
-                <span class="title">Payement Amount</span>
-                <span class="amount-value">$500.00</span>
-              </div>
-              <i class="fas fa-dollar-sign icon"></i>
-            </div>
-            <span class="card-detail">******37447</span>
-          </div>
-          <div class="payment--card light-red">
-            <div class="card--header">
-              <div class="amount">
-                <span class="title">Payement Amount</span>
-                <span class="amount-value">$500.00</span>
-              </div>
-              <i class="fas fa-dollar-sign icon"></i>
-            </div>
-            <span class="card-detail">******37447</span>
-          </div>
-        </div>
       </div>
-      <div class="tabular--wrapper">
-        <h3 class="main--title">Finance Data</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Category</th>
-                    <th>Date</th>
-                    <th>Amount</th>
-                    <th>Work</th>
-                    <th>Receiver</th>
-                    <th>Message</th>
-                  </tr>
-                </thead>
-                <tbody>
-                {rows.map((row) => (
-                  <tr>
-                    <td>{row.id}</td>
-                    <td>{row.category}</td>
-                    <td>{formatDate(row.date)}</td>
-                    <td>{row.amount}</td>
-                    <td>{row.work}</td>
-                    <td>{row.receiver}</td>
-                    <td>
-                    {row.message}
-                    </td>
-                  </tr>
-                ))}
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <td colspan="7">Total $7,000</td>
-                  </tr>
-                </tfoot>
-              </table>
-              </div>
-    </div>
     </>
   );
 };
