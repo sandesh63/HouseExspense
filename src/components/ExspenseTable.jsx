@@ -56,8 +56,8 @@ const ExspenseTable = () => {
     return formattedDate;
   };
 
-  const lastRowdata = rows[rows.length - 1];
-  const lastRowAmounts = ["10000", lastRowdata.bankBalance, lastRowdata.inHandBalance, "38"];
+  const lastRowdata = rows ? rows[rows.length - 1]:[];
+  const lastRowAmounts = rows ? ["10000", rows.bankBalance, rows.inHandBalance, "38"] : [];
 
   const eventData = data.map((event) => event.events);
   const submitHandler = () => {
