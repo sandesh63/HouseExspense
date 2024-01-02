@@ -27,6 +27,10 @@ const data = [
 const ExspenseTable = () => {
   const navigate = useNavigate();
   const color = ["light-blue", "light-green", "light-red", "light-purple"];
+  const today = new Date();
+  const targetDate = new Date("2024-02-22");
+  const differenceInMilliseconds = targetDate - today;
+  const differenceInDays = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
 
   useEffect(() => {
     const getTableData = async () => {
@@ -59,7 +63,7 @@ const ExspenseTable = () => {
 
   const lastRowdata = rows && rows.length > 0 ? rows[rows.length - 1] : null;
   const lastRowAmounts = lastRowdata
-    ? [10000, lastRowdata.bankBalance, lastRowdata.inHandBalance, 38]
+    ? [10000, lastRowdata.bankBalance, lastRowdata.inHandBalance, differenceInDays]
     : [];
 
   const eventData = data.map((event) => event.events);
