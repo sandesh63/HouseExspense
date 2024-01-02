@@ -1,267 +1,261 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-*{
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-    box-sizing: border-box;
-    font-family: "Poppins",sans-serif;
-}
-.wrap{
-    display: flex;
-}
-.sidebar{
-    position: sticky;
-    top:0;
-    left:0;
-    bottom: 0;
-    width: 90px;
-    height: 100vh;
-    padding: 0 1.7rem;
-    color:#fff;
-    overflow: hidden;
-    transition: all 0.5s linear;
-    background: rgba(113,99,186,255);
-
-    
-}
-.sidebar:hover{
-    width: 200px;
-    transition: 0.5s;
-}
-.logo{
-    height: 80px;
-    padding: 16px;
-}
-.menu{
-    height: 88%;
-    position: relative;
-    list-style: none;
-    padding: 0;
-}
-.menu li{
-    padding: 1rem;
-    margin: 8px 0;
-    border-radius: 8px;
-    transition: all 0.5s ease-in-out;
-}
-.menu li:hover{
-    background: #e0e0e058;
-
-}
-.menu a{
-    color: #fff;
-    font-size: 14px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-.menu a span{
-    overflow: hidden;
-}
-.menu a i{
-    font-size: 1.2rem;
-}
-.logout{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
+.sidebar--container {
+  height: 100vh;
+  background-color: rgba(113, 99, 186, 255);
+}
+
+.logo {
+  color: white;
+  padding-top: 16px;
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+}
+.menu {
+  margin: 0 !important;
+  list-style: none;
+  padding: 0 !important;
+}
+.menu li {
+  padding: 1rem;
+}
+
+.menu .link {
+  color: #fff;
+
+  display: flex;
+
+  gap: 1rem;
+}
+.row {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/*******************/
+.main--container {
+  padding: 10px;
+  background: #ebe9e9;
+}
+.header--title span {
+  font-size: 14px;
+}
+.header--title div {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.logout {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
 
 /*Main Body css          */
 
-.main--content{
-    position: relative;
-    background: #ebe9e9;
-    width: 100%;
-    padding: 1rem;
-}
-.header--wrapper img{
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    border-radius: 50%;
-}
-.header--wrapper{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    background: #fff;
-    border-radius: 10px;
-    padding: 10px 2rem;
-    margin-bottom: 1rem;
-}
-.header--title{
-    color: rgba(113,99,186,255);
-}
-.user--info{
-    display: flex;
-    align-items: center;
-    gap:1;
-}
-.search--box{
-    background: rgb(237,237,237);
-    border-radius: 15px;
-    color:rgba(113,99,186,255);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 4px 12px;
-}
-.search--box input{
-    background: transparent;
-    padding: 10px;
-}
-.search--box i{
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.5s ease-out;
-}
-.search--box i:hover{
-    transform: scale(1.2);
-}
+.header--wrapper {
+  display: flex;
+  justify-content: space-between;
+border-radius: 10px;
+  background: #fff;
 
+  margin-bottom: 1rem;
+}
 
 /*card-container*/
-.card-container{
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-}
-.card-wrapper{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+.card-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
 }
 
-.main--title{
-    color: rgba(113,99,186,255);
-    padding-bottom: 10px;
-    font-size: 15px;
-}
-.payment--card{
-    background: rgb(229, 223, 223);
-    border-radius: 10px;
-    padding: 1.2rem;
-    width: 230px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.5s ease-in-out;
-}
-.payment--card:hover{
-    transform: translateY(-5px);
-}
-.card--header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.amount{
-    display: flex;
-    flex-direction: column;
-}
-.title{
-    font-size: 12px;
-    font-weight: 200;
-}
-.amount--value{
-    font-size: 24px;
-    font-family: "Courier NEW",'Courier New', Courier, monospace;
-    font-weight: 600;
-}
-.icon{
-    color: #fff;
-    padding: 1rem;
-    height: 60px;
-    width: 60px;
-    text-align: center;
-    border-radius: 50%;
-    background: red;
-}
-.card-detail{
-    font-size: 18px;
-    color:#777777;
-    letter-spacing: 2px;
-    font-family: 'Courier New', Courier, monospace;
-
-}
-.light-red{
-    background: rgb(254, 226, 233);
-}
-.light-purple{
-    background: rgb(254, 226, 254);
+.payment--card {
+  padding: 1.2rem;
 }
 
-.light-green{
-    background: rgb(235, 254, 235);
+.amount {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
-.light-red{
-    background: rgb(236, 236, 254);
+/* .amount--value {
+  font-size: 24px;
+  font-family: "Courier NEW", "Courier New", Courier, monospace;
+  font-weight: 600;
+} */
+
+.light-red {
+  background-color: rgb(254, 226, 233) !important;
+  font-weight: bold !important;
 }
-.dark-red{
-    background: red;
-}
-.dark-purple{
-    background: purple;
-}
-.dark-green{
-    background: green;
+.light-purple {
+  background-color: rgb(254, 226, 254) !important;
+  font-weight: bold !important;
 }
 
+.light-green {
+  background-color: rgb(235, 254, 235) !important;
+  font-weight: bold !important;
+}
+
+.light-blue {
+  background-color: rgb(236, 236, 254) !important;
+  font-weight: bold !important;
+}
 
 /*table*/
-.tabular--wrapper{
-    background: #fff;
-    margin-top: 1rem;
-    border-radius: 10px;
-    padding: 2rem;
+
+.table {
+  --bs-table-bg: #f2f2f2 !important;
 }
-.table-container{
-    width: 100%;
+.table--col {
+  background: #fff;
+  margin-top: 1rem !important;
+  border-radius: 10px;
+  padding: 2rem !important;
 }
-table{
-    width: 100%;
-    border-collapse: collapse;
+.table--row:nth-child(even) {
+  --bs-table-bg: #fff !important;
 }
-thead{
-    background: rgba(113,99,186,255);
-    color: #fff;
+.table--head {
+  background-color: rgba(113, 99, 186, 255);
+  /* color: #fff !important; */
+  --bs-table-color-state: #fff;
 }
-th{
-    padding: 15px;
-    text-align: left;
+th {
+  background-color: rgba(113, 99, 186, 255) !important;
+  padding: 15px;
+  text-align: left;
 }
-tbody{
-    background: #f2f2f2;
+tfoot {
+  --bs-table-bg: rgba(113, 99, 186, 255) !important;
+  font-weight: bold;
+  color: #fff !important;
 }
-td{
-    padding: 15px;
+.main-title {
+  color: rgb(113, 99, 186, 255);
+  padding: 10px;
+  font-size: 15px;
+}
+@media (max-width: 374px) {
+  .logo {
+    font-size: 10px;
+  }
+  .menu li {
+    padding: 1rem 0rem;
+  }
+  .menu .link {
+    font-size: 8px;
+
+    gap: 0.5rem;
+  }
+  .header-title span {
+    font-size: 10px;
+  }
+  .header--title div {
     font-size: 14px;
-    color: #333;
-}
-tr:nth-child(even)
-{
-    background: #fff;
-}
-tfoot{
-    background: rgba(113,99,186,255);
+
     font-weight: bold;
-    color: #fff;
+  }
+  .amount .title {
+    font-size: 12px;
+  }
+  .payment--card {
+    padding: 0.4rem !important;
+  }
+  .card-col {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .table-col {
+    padding: 0.5rem !important;
+  }
+  .table--head {
+    font-size: 12px;
+    padding: 0 !important;
+  }
+  .table--row {
+    font-size: 10px;
+  }
 }
-tfoot td{
-    padding: 15px;
-    color: #fff;
+
+@media (min-width: 321px) and (max-width: 767px) {
+  .logo {
+    font-size: 14px;
+  }
+  .menu li {
+    padding: 1rem 0rem;
+  }
+  .menu .link {
+    font-size: 12px;
+
+    gap: 0.5rem;
+  }
+  .header--title {
+    font-size: 12px;
+  }
+  .header-title span {
+    font-size: 10px;
+  }
+  .header--title div {
+    font-size: 14px;
+
+    font-weight: bold;
+  }
+  .amount .title {
+    font-size: 12px;
+  }
+  .payment--card {
+    padding: 0.4rem !important;
+  }
+  .card-col {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .main-title {
+    padding-bottom: 5px;
+  }
+  .table--col {
+    padding: 1rem !important;
+  }
+  .table--head {
+    font-size: 12px !important;
+  }
 }
-.table-container{
-    color: green;
-    background: none;
-    cursor: pointer;
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .logo {
+    font-size: 16px;
+  }
+  .menu li {
+    padding: 1rem 0rem;
+  }
+  .menu .link {
+    font-size: 14px;
+
+    gap: 0.5rem;
+  }
+  .card-col {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .main-title {
+    padding-bottom: 10px;
+  }
+  .table--col {
+    padding: 1rem !important;
+  }
 }

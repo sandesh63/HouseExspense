@@ -1,17 +1,33 @@
 import React, { useEffect, useState } from "react";
-import Card from "react-bootstrap/Card";
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TablePagination from "@mui/material/TablePagination";
-import TableRow from "@mui/material/TableRow";
 import axios from "axios";
-import { Col, Row } from "react-bootstrap";
 import "./ExspenseTable.css";
+import { RxDashboard } from "react-icons/rx";
+import { useNavigate } from "react-router";
+import { Card, Col, Container, Row, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
+const data = [
+  {
+    events: [
+      {
+        name: "Loan Amount",
+      },
+      {
+        name: "Bank Balance",
+      },
+      {
+        name: "In Hand Balance",
+      },
+      {
+        name: "Days Remaining",
+      },
+    ],
+  },
+];
 const ExspenseTable = () => {
+  const navigate = useNavigate();
+  const color = ["light-blue", "light-green", "light-red", "light-purple"];
+
   useEffect(() => {
     const getTableData = async () => {
       try {
@@ -28,8 +44,9 @@ const ExspenseTable = () => {
     };
     getTableData();
   }, []);
+
   const [loading, setLoading] = useState(true);
-  const [rows, setRows] = useState([]);
+  const [rows, setRows] = useState(null);
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     const formattedDate = new Date(dateString).toLocaleDateString(
@@ -39,172 +56,122 @@ const ExspenseTable = () => {
     return formattedDate;
   };
 
+  const lastRowdata = rows[rows.length - 1];
+  const lastRowAmounts = ["10000", lastRowdata.bankBalance, lastRowdata.inHandBalance, "38"];
+
+  const eventData = data.map((event) => event.events);
+  const submitHandler = () => {
+    navigate("/login");
+  };
+
   return (
     <>
-      {/* <Card classNameName="bg-light text-white">
-        <Paper style={{ width: "100%", overflow: "hidden" }}>
-          <TableContainer style={{ maxHeight: 440 }}>
-            <Table stickyHeader aria-label="sticky table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>ID</TableCell>
-                  <TableCell>Category</TableCell>
-                  <TableCell>Date</TableCell>
-                  <TableCell>Amount</TableCell>
-                  <TableCell>Work</TableCell>
-                  <TableCell>Receiver</TableCell>
-                  <TableCell>Message</TableCell>
-                </TableRow>
-              </TableHead>
+      <Row className="row">
+        <Col xs={3} sm={2} md={2} lg={2} className="sidebar--container">
+          <div className="logo">Exspense Tracker</div>
+          <ul className="menu">
+            <li className="active">
+              <Link to="#" className="link">
+                <i>
+                  <RxDashboard />
+                </i>
+                <span>Dashboard</span>
+              </Link>
+            </li>
 
-              {rows.map((row) => (
-                <TableRow key={row.id}>
-                  <TableCell>{row.id}</TableCell>
-                  <TableCell>{row.category}</TableCell>
-                  <TableCell>{row.date}</TableCell>
-                  <TableCell>{row.amount}</TableCell>
-                  <TableCell>{row.work}</TableCell>
-                  <TableCell>{row.receiver}</TableCell>
-                  <TableCell>{row.message}</TableCell>
-                </TableRow>
-              ))}
-            </Table>
-          </TableContainer>
-        </Paper>
-      </Card> */}
-      <div className="wrap">
-      <div className="sidebar">
-        <div className="logo"></div>
-        <ul className="menu">
-          <li className="active">
-            <a href="#">
-              <i className="fas fa-tachometer-alt"></i>
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fas fa-user"></i>
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fas fa-chart-bar"></i>
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fas fa-briefcase"></i>
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fas fa-sign-out"></i>
-              <span>Logout</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div className="main--content">
-        <div className="header--wrapper">
-          <div className="header-title">
-            <span>Primary</span>
-            <h2>Dashboard</h2>
-          </div>
-          <div className="user--info">
-            <div className="search--box">
-              <i className="fa-solid fa-search"></i>
-              <input type="text" placeholder="Search" />
+            {/* <li>
+              <a href="#">
+                <i className="fas fa-sign-out"></i>
+                <span>Logout</span>
+              </a>
+            </li> */}
+          </ul>
+        </Col>
+        <Col xs={9} sm={10} lg={10} className="main--container">
+          <Container fluid className="header--wrapper">
+            <div className="header-title">
+              <span>HouseExspense</span>
+              <h2>Dashboard</h2>
             </div>
-
-            <img src="" alt="profilepic" />
-          </div>
-        </div>
-        <div className="card-container">
-          <h3 className="main--title">Today's date</h3>
-
-          <div className="card-wrapper">
-            <div className="payment--card light-red">
-              <div className="card--header">
-                <div className="amount">
-                  <span className="title">Payement Amount</span>
-                  <span className="amount-value">$500.00</span>
-                </div>
-                <i className="fas fa-dollar-sign icon"></i>
-              </div>
-              <span className="card-detail">******37447</span>
+            <div className="user--info">
+              <Button onClick={submitHandler} variant="contained">
+                Login
+              </Button>
             </div>
-            <div className="payment--card light-green">
-              <div className="card--header">
-                <div className="amount">
-                  <span className="title">Payement Amount</span>
-                  <span className="amount-value">$500.00</span>
-                </div>
-                <i className="fas fa-dollar-sign icon"></i>
-              </div>
-              <span className="card-detail">******37447</span>
-            </div>
-            <div className="payment--card light-purple">
-              <div className="card--header">
-                <div className="amount">
-                  <span className="title">Payement Amount</span>
-                  <span className="amount-value">$500.00</span>
-                </div>
-                <i className="fas fa-dollar-sign icon"></i>
-              </div>
-              <span className="card-detail">******37447</span>
-            </div>
-            <div className="payment--card light-red">
-              <div className="card--header">
-                <div className="amount">
-                  <span className="title">Payement Amount</span>
-                  <span className="amount-value">$500.00</span>
-                </div>
-                <i className="fas fa-dollar-sign icon"></i>
-              </div>
-              <span className="card-detail">******37447</span>
-            </div>
-          </div>
-        </div>
-        <div className="tabular--wrapper">
-          <h3 className="main--title">Finance Data</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Category</th>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Work</th>
-                <th>Receiver</th>
-                <th>Message</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row) => (
-                <tr>
-                  <td>{row.id}</td>
-                  <td>{row.category}</td>
-                  <td>{formatDate(row.date)}</td>
-                  <td>{row.amount}</td>
-                  <td>{row.work}</td>
-                  <td>{row.receiver}</td>
-                  <td>{row.message}</td>
-                </tr>
-              ))}
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="7">Total $7,000</td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-      </div>
-      </div>
+          </Container>
+          <Container fluid className="card--container">
+            <Row className="card--row">
+              {rows !== null ? (
+                eventData[0].map((event, index) => {
+                  const colorIndex = index % 4;
+                  const newColor = color[colorIndex];
+                  return (
+                    <Col
+                      xs={6}
+                      sm={6}
+                      ms={6}
+                      lg={3}
+                      className="card--col"
+                      key={index}
+                    >
+                      <Card className={newColor}>
+                        <Card.Body className="payment--card">
+                          <div className="card--header">
+                            <div className="amount">
+                              <span className="title">{event.name}</span>
+                              <span className="amount-value">{lastRowAmounts[index]}</span>
+                            </div>
+                          </div>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  );
+                })
+              ) : (
+                <>
+                  <p>...Loading</p>
+                </>
+              )}
+            </Row>
+          </Container>
+          <Row className="table--col">
+            <Col xs={12}>
+              <h3 className="main--title">Finance Data</h3>
+              <Table responsive>
+                <thead className="table--head">
+                  <tr>
+                    <th>Id</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Message</th>
+                    <th>Receiver</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows !== null ? (
+                    rows.map((row) => (
+                      <tr className="table--row">
+                        <td>{row.id}</td>
+                        <td>{row.amount}</td>
+                        <td>{formatDate(row.date)}</td>
+                        <td>{row.message}</td>
+                        <td>{row.receiver}</td>
+                        <td>{row.type}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="6">Loading...</td> // Or show a loading
+                      indicator
+                    </tr>
+                  )}
+                </tbody>
+              </Table>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </>
   );
 };
