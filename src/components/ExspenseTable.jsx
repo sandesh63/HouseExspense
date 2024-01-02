@@ -57,8 +57,10 @@ const ExspenseTable = () => {
     return formattedDate;
   };
 
-  const lastRowdata = rows ? rows[rows.length - 1]:[];
-  const lastRowAmounts = rows ? [10000, lastRowdata[0].bankBalance, lastRowdata[0].inHandBalance, 38] : [];
+  const lastRowdata = rows && rows.length > 0 ? rows[rows.length - 1] : null;
+  const lastRowAmounts = lastRowdata
+    ? [10000, lastRowdata.bankBalance, lastRowdata.inHandBalance, 38]
+    : [];
 
   const eventData = data.map((event) => event.events);
   const submitHandler = () => {
@@ -120,7 +122,9 @@ const ExspenseTable = () => {
                           <div className="card--header">
                             <div className="amount">
                               <span className="title">{event.name}</span>
-                              <span className="amount-value">{lastRowAmounts[index]}</span>
+                              <span className="amount-value">
+                                {lastRowAmounts[index]}
+                              </span>
                             </div>
                           </div>
                         </Card.Body>
