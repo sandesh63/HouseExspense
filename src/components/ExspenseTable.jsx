@@ -35,6 +35,7 @@ const ExspenseTable = () => {
           "https://houseexspensebackend-production.up.railway.app/getlist"
         );
         setRows(response.data);
+        console.log(rows);
 
         setLoading(false);
       } catch (error) {
